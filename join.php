@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>회원가입</h1>
-    <form action="register_server.php" method="POST">
+    <form action="register_server.php" method="GET">
       <label for="username">성함</label>
       <input type="text" id="username" name="username" required placeholder="이름" />
 

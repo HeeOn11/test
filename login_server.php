@@ -7,8 +7,8 @@ $dbname = "loginweb";
 
 
 // 값 받아오기
-$id = $_POST["userid"];
-$user_input_pwd = $_POST["userpwd"];
+$id = $_GET["userid"];
+$user_input_pwd = $_GET["userpwd"];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

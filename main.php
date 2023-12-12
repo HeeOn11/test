@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>환영합니다</h1>
-    <form action="login_server.php" method="POST">
+    <form action="login_server.php" method="GET">
       <lable for="userid">아이디</lable>
 
       <input
@@ -29,9 +29,7 @@
         minlength="8"
       />
 
-      <button type="submit">
-        로그인
-      </button>
+      <button type="submit">로그인</button>
       <button type="button" onclick="location.href='join.php'">
         회원가입
       </button>

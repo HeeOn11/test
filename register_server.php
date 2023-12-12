@@ -14,17 +14,17 @@ if ($conn->connect_error) {
 }
 
 //값 받아오기
-$name = $_POST["username"];
-$id = $_POST["userid"];
-$pwd = $_POST["userpwd"];
-$email = $_POST["email"];
-$tel = $_POST["tel"];
+$name = $_GET["username"];
+$id = $_GET["userid"];
+$pwd = $_GET["userpwd"];
+$email = $_GET["email"];
+$tel = $_GET["tel"];
 
 
 // 회원가입 처리
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["가입하기"])) {
-    $username = $_POST["username"];
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["가입하기"])) {
+    $username = $_GET["username"];
+    $password = password_hash($_GET["password"], PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
     $result = $conn->query($sql);
