@@ -1,12 +1,14 @@
 <?php
+include("db_config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 데이터베이스 연결
-    $db = new PDO('mysql:host=localhost;dbname=boardweb;charset=utf8', 'root', 'cy1234');
+    $db = new PDO('mysql:host=localhost;dbname=boardweb;charset=utf8', DB_USER, DB_PASS);
 
     // POST 데이터 가져오기
     $title = $_POST['title'];
     $content = $_POST['content'];
+    $id = $_POST['id'];
 
     // 데이터베이스에 데이터 삽입
     $stmt = $db->prepare("INSERT INTO board (title, content) VALUES (:title, :content)");

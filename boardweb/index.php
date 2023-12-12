@@ -1,3 +1,7 @@
+<?php
+include("db_config.php");
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -20,20 +24,23 @@
       <tbody>
         <?php
             //데이터베이스 연결
-            $db = new PDO('mysql:host=localhost;dbname=boardweb;charset=utf8', 'root', 'cy1234');
+            $db = new PDO('mysql:host=localhost;dbname=boardweb;charset=utf8', DB_USER, DB_PASS);
 
-            //데이터베이스에서 게시글 목록을 가져오는
+            //게시글 목록
             $stmt = $db -> query('SELECT * FROM board ORDER BY Idx DESC');
 
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo '<tr>'; // 테이블 행 시작
-                echo '<td>'.$row['Idx'].'</td>'; // 인덱스 표시
-                echo '<td>'.$row['title'].'</td>'; // 제목 표시
-                echo '<td>'.$row['id'].'</td>'; // 사용자 ID 표시 (작성자 이름을 나타내는 것으로 가정)
+                echo '<tr>';
+                echo '<td>'.$row['Idx'].'</td>';
+
+                echo '<td><a href="view.php?id='.$row['Idx'].'">'.$row['title'].'</a></td>';
+                
+                echo '<td>'.$row['id'].'</td>';
                 echo '<td>'.$row['date'].'</td>'; // 날짜 표시
                 echo '</tr>'; // 테이블 행 끝
             }
       ?>
     </table>
-    <table>
+    <button type="button" onclick="location.href='write.php'">글쓰기</button>
+    <button type="button" onclick="location.href='register.php'">회원가입</button>
 </html>
