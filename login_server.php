@@ -27,15 +27,14 @@ $result = $stmt->get_result();
 // 데이터베이스랑 비교
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
-        
+
+    /*비밀번호가 일치하는데도 일치하지 않는다는 오류 발생
+    해시값이 다른 것으로 확인*/
     // 비밀번호 확인
     if (password_verify($user_input_pwd,$user['hash_pwd'])) {
         echo "로그인 성공";
     } else {
         echo "비밀번호가 일치하지 않습니다";
-//        echo "데이터베이스 해시 비밀번호" .$user['hash_pwd'];
-//        echo "입력한 비밀번호:";
-//        echo password_hash($user_input_pwd, PASSWORD_DEFAULT);
     }
 } else {
     echo "일치하는 사용자가 없습니다";
