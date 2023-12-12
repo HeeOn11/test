@@ -2,7 +2,7 @@
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 데이터베이스 연결
-    $db = new PDO('mysql:host=localhost;dbname=boardweb;charset=utf8', 'root', 'cy1234');
+    $db = new PDO('mysql:host=localhost;dbname=boardweb;charset=utf8', 'user', 'password');
 
     // POST 데이터 가져오기
     $title = $_POST['title'];
