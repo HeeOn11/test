@@ -1,8 +1,8 @@
 <?php
 // 데이터베이스 연결 설정
 $servername = "localhost";
-$username = "user";
-$password = "password";
+$username = DB_USER;
+$password = DB_PASS;
 $dbname = "loginweb";
 
 
